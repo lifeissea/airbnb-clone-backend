@@ -12,35 +12,34 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Amenity',
+            name='Perk',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
                 ('updated_at', models.DateTimeField(auto_now=True)),
-                ('name', models.CharField(max_length=150)),
-                ('description', models.CharField(blank=True, max_length=150, null=True)),
+                ('name', models.CharField(max_length=100)),
+                ('detail', models.CharField(max_length=250)),
+                ('explation', models.TextField()),
             ],
             options={
-                'verbose_name_plural': 'Amenities',
+                'abstract': False,
             },
         ),
         migrations.CreateModel(
-            name='Room',
+            name='Experience',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
                 ('updated_at', models.DateTimeField(auto_now=True)),
-                ('name', models.CharField(default='', max_length=180)),
                 ('country', models.CharField(default='한국', max_length=50)),
                 ('city', models.CharField(default='서울', max_length=80)),
+                ('name', models.CharField(max_length=250)),
                 ('price', models.PositiveIntegerField()),
-                ('rooms', models.PositiveIntegerField()),
-                ('toilets', models.PositiveIntegerField()),
-                ('description', models.TextField()),
                 ('address', models.CharField(max_length=250)),
-                ('pet_friendly', models.BooleanField(default=True)),
-                ('kind', models.CharField(choices=[('entire_place', 'Entire place'), ('private_room', 'Private Room'), ('shared_room', 'Shared Room')], max_length=20)),
-                ('amenities', models.ManyToManyField(to='rooms.amenity')),
+                ('start', models.TimeField()),
+                ('end', models.TimeField()),
+                ('description', models.TextField()),
+                ('Perks', models.ManyToManyField(to='experiences.perk')),
             ],
             options={
                 'abstract': False,
