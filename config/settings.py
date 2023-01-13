@@ -36,6 +36,10 @@ CUSTOM_APPS = [
     'common.apps.CommonConfig',
     'experiences.apps.ExperiencesConfig',
     'categories.apps.CategoriesConfig',
+    'reviews.apps.ReviewsConfig',
+    'wishlists.apps.WishlistsConfig',
+    'bookings.apps.BookingsConfig',
+
 ]
 
 SYSTEM_APPS = [
@@ -45,6 +49,7 @@ SYSTEM_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
 ]
 
 INSTALLED_APPS = SYSTEM_APPS + CUSTOM_APPS
@@ -57,6 +62,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
 ]
 
 ROOT_URLCONF = 'config.urls'
