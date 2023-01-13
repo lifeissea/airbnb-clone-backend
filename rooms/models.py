@@ -26,6 +26,8 @@ class Room(CommonModel):
     owner = models.ForeignKey("users.User", on_delete=models.CASCADE,)
     """Many to Many Amenity"""
     amenities = models.ManyToManyField("rooms.Amenity")
+    category = models.ForeignKey(
+        "categories.Category", null=True, blank=True, on_delete=models.SET_NULL,)
 
     def __str__(self) -> str:
         return self.name
