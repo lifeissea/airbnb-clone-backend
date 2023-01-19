@@ -34,8 +34,8 @@ class CreateRoomBookingSerializer(serializers.ModelSerializer):
                 "Check in should be smaller than check out"
             )
         if Booking.objects.filter(
-            check_in__gte=data["check_out"],
-            check_out__lte=data["check_in"],
+            check_in__lte=data["check_out"],
+            check_out__gte=data["check_in"],
         ).exists():
             raise serializers.ValidationError(
                 "Those (or some) of those dates are already taken."
