@@ -45,7 +45,10 @@ class WishlistDetail(APIView):
 
     def get(self, request, pk):
         wishlist = self.get_object(pk, request.user)
-        serializer = WishlistSerializer(wishlist)
+        serializer = WishlistSerializer(
+            wishlist,
+            context={"request": request},
+        )
         return Response(serializer.data)
 
     def delete(self, request, pk):
