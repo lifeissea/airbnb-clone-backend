@@ -79,7 +79,7 @@ class AmenityDetail(APIView):
 
 class Rooms(APIView):
     permission_classes = [IsAuthenticatedOrReadOnly]
-    """The request is authenticated as a user, or is a read-only request"""
+    # """The request is authenticated as a user, or is a read-only request"""
 
     def get(self, request):
         all_rooms = Room.objects.all()
